@@ -1,0 +1,1 @@
+Задание 1: Создайте класс Rectangle с приватными полями width и height. Реализуйте геттеры, сеттеры с валидацией и методы calculateArea(), calculatePerimeter().
