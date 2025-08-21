@@ -71,7 +71,7 @@ public abstract class Person implements IPerson {
         return faculty;
     }
 
-    //геттер общий - нужен ли но - вопрос?   
+    //геттер общий - нужен ли - вопрос?   
     public String getInfo(){
         return String.format("Имя: %s , Возраст: %s , Пол: %s",  name,age,sex );
      }
