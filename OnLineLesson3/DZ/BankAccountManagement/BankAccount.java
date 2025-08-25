@@ -20,7 +20,7 @@ public class BankAccount {
         if (balance < 0) {
             this.Balance = 0;
         }
-        this.Balance = balance;
+        else {this.Balance = balance;}
     }
 
     public void setOwnerName(String ownerName) {
