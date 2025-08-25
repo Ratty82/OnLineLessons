@@ -48,8 +48,8 @@ public class App {
             moveTransport(vehicles,d);
         } catch (NegativeDistanceException e)
             {System.out.println("Ошибка :" + e.getMessage() + e.getDistance());}
-          catch (OutOfFuelException f)
-            {System.out.println("Ошибка :" + f.getMessage() + f.getFuelAmount());}
+          catch (OutOfFuelException e)
+            {System.out.println("Ошибка :" + e.getMessage() + e.getFuelAmount());}
         
     }
 }
