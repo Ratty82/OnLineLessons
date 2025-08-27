@@ -55,14 +55,14 @@ public class BankAccount {
     }
     
     //метод withdraw - выдача денег
-    public double withdraw(double amount,double funds) throws InvalidAmountException,InsufficientFundsException{
+    public double withdraw(double amount) throws InvalidAmountException,InsufficientFundsException{
         if (amount <= 0) {
             throw new InvalidAmountException("Сумма операции отрицательная или равна нулю:", amount);
         }
-        if (amount > funds) {
-            throw new InsufficientFundsException("На балансе недостаточно средств:", amount , funds);
+        if (amount > this.Balance) {
+            throw new InsufficientFundsException("На балансе недостаточно средств:", amount , this.Balance);
         }
-        setBalance(funds - amount);
+        setBalance(this.Balance - amount);
 
         return getBalance();
     }
