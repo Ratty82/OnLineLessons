@@ -14,11 +14,14 @@ import java.util.List;
         this.readerId = LibraryIdGen.readerNextId();
         this.borrowedItems = new ArrayList<>();
         setName(name);
-
     }
 
     public String getId() {
         return readerId;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {

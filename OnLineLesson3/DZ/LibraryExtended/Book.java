@@ -41,7 +41,11 @@ public class Book extends LibraryItem{
     public String  getItemType(){
         return "Book";
     }
-
     
+    @Override
+    public String getLibraryItemInfo(){
+        String result = getItemType() + ":" + getId() + "," + getTitle() + "," + getAuthor() + "," + getIsbn() + "," + isAvailable();
+        return result;
+    };
     
 }

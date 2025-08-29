@@ -11,11 +11,11 @@ public class LibraryIdGen {
         LibraryIdGen.readerPrefix = "R";
     }
 
-    public string bookNextId(){
+    public static String bookNextId(){
         return bookPrefix + Integer.toString(++counterBook);
     }
 
-    public string readerNextId(){
+    public static String readerNextId(){
         return readerPrefix + Integer.toString(++counterReader);
     }
     

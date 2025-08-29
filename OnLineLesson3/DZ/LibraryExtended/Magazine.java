@@ -10,6 +10,15 @@ public class Magazine extends LibraryItem{
         setIssueNumber(issueNumber);
         setMonth(month);
     }
+    
+    
+    public int getIssueNumber() {
+        return issueNumber;
+    }
+
+    public int getMonth() {
+        return month;
+    }
 
     public void setIssueNumber(int issueNumber){
         if (issueNumber <= 0 ) {
@@ -33,6 +42,13 @@ public class Magazine extends LibraryItem{
     public String  getItemType(){
         return "Magazine";
     }
+
+    @Override
+    public String getLibraryItemInfo(){
+        String result = getItemType() + ":" + getId() + "," + getTitle() + "," + getIssueNumber() + "," + getMonth() + "," + isAvailable();
+        return result;
+    };
+    
 
     
 

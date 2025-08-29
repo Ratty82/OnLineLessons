@@ -1,15 +1,15 @@
 //**Создайте базовый класс `LibraryItem`:**
 //   - Поля: `id` (String), `title` (String), `isAvailable` (boolean)
 
-public class LibraryItem {
+public abstract class LibraryItem {
     protected String id;
     protected String title;
     protected boolean isAvailable;
 
     public LibraryItem(String id,String title, boolean isAvailable){
-    setAvaiability(isAvailable);
+    setAvailability(isAvailable);
     setTitle(title);
-    setId();
+    setId("");
 
     }
 
@@ -36,7 +36,7 @@ public class LibraryItem {
 
     public String setId(String inId){
         if (inId == null || title.trim().isEmpty()) {
-            return bookNextId();
+            return LibraryIdGen.bookNextId();
         }
         else {return inId;}
     }
@@ -46,6 +46,10 @@ public class LibraryItem {
     public String  getItemType(){
         return "LibraryItem";
     }
+
+    public String getLibraryItemInfo(){
+        return "Элемент: ";
+    };
 
     public String getId() {
         return id;
