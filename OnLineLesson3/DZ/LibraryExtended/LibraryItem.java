@@ -7,9 +7,9 @@ public class LibraryItem {
     protected boolean isAvailable;
 
     public LibraryItem(String id,String title, boolean isAvailable){
-    this.isAvailable = true;
+    setAvaiability(isAvailable);
     setTitle(title);
-    this.id = bookNextId();
+    setId();
 
     }
 
@@ -21,6 +21,26 @@ public class LibraryItem {
             this.title = title;
         }   
     }
+
+    public void setAvailability(boolean newState) {
+        if (newState) {
+            this.isAvailable = true;
+        }
+        if (!newState) {
+            this.isAvailable = false;
+        }
+        else {
+            throw new IllegalArgumentException("Неверное значение аргумента isAvailable")
+        }   
+    }    
+
+    public String setId(String inId){
+        if (inId == null || title.trim().isEmpty()) {
+            return bookNextId();
+        }
+        else {return inId;}
+    }
+
     
     //   - Абстрактный метод: `getItemType()` Комментарий: но получается что метод не абстрактый- он конкретный, но будет переопределяться наследниками 
     public String  getItemType(){
