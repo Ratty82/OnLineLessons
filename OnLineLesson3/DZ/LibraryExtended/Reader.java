@@ -41,8 +41,11 @@ import java.util.List;
         borrowedItems.remove(item);
     }
 
-    public ArrayList<LibraryItem> getBorrowedItems() {
-        return borrowedItems;
+    public void getBorrowedItems() {
+        for (LibraryItem item : borrowedItems){
+            System.out.println(item.getLibraryItemInfo());    
+        }
+        
     }
 
     public boolean hasBorrowedItems(String bookId) {

@@ -50,7 +50,7 @@ public class Library {
         Reader foundReader = findReaderById(readerId);
         
         if (foundReader.hasBorrowedItems(foundItem.getId())){
-            throw new LibraryException("Такой объект уже взят");
+            throw new LibraryException("Такой объект уже взят этим читателем");
         }
         
         if (foundItem.isAvailable()) {
@@ -60,7 +60,7 @@ public class Library {
         else {throw new ItemNotAvailableException(foundItem.getId());}
     }  
 
-    public void returnItem(String bookId, String readerId) throws LibraryException,ItemNotFoundException,ItemAlreadyReturnedException{
+    public void returnItem(String bookId, String readerId) throws LibraryException,ItemNotFoundException,ReaderNotFoundException,ItemAlreadyReturnedException{
         
         LibraryItem foundItem = findItemById(bookId);
         Reader foundReader = findReaderById(readerId);
@@ -74,6 +74,28 @@ public class Library {
         }
 
     }
+
+    public void listItems(){
+        for (LibraryItem item : items) {
+            System.out.println(item.getItemType() + ":" + item.getId() + "," + item.getTitle() + "," + "Available:" + item.isAvailable());
+        }
+     }
+    
+    public void listReaders(){
+        for (Reader reader : readers) {
+            System.out.println(reader.getId() + "," + reader.getName());
+        }
+    }
+
+    public void listBorrowedItemsByReader(String readerID) throws ReaderNotFoundException{
+        Reader foundReader = findReaderById(readerID);
+        System.out.println("Читатель c ID: " + foundReader.getId() + "," + foundReader.getName() + " взял следующие книги:");
+        foundReader.getBorrowedItems();
+    }
+    
+
+
+   
 
 
 }

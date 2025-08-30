@@ -1,0 +1,77 @@
+1. Создадим библиотеку и читателей
+
+Book:B1,Пасынки вселенной,Available:true
+Book:B2,Астронавт Джонс,Available:true
+Magazine:B3,Огонек,Available:true
+Magazine:B4,Огонек,Available:true
+
+R1,Евгений
+R2,Константин
+
+2. Протестируем выдачу книг читателю Евгений
+
+--успешная выдача
+Статистика библиотеки и читателя
+Book:B1,Пасынки вселенной,Available:false
+Book:B2,Астронавт Джонс,Available:true
+Magazine:B3,Огонек,Available:true
+Magazine:B4,Огонек,Available:true
+Читатель c ID: R1,Евгений взял следующие книги:
+Book:B1,Пасынки вселенной,Хайнлайн,1442-BBN-1232-EW,false
+--неверная книга, неверный читатель
+Ошибка : Элемент библиотеке с ID: B12 не найден
+Статистика библиотеки и читателя
+Book:B1,Пасынки вселенной,Available:false
+Book:B2,Астронавт Джонс,Available:true
+Magazine:B3,Огонек,Available:true
+Magazine:B4,Огонек,Available:true
+Ошибка : Читатель с ID: R12 не найден
+--книга уже взята этим же читетелем
+Ошибка : Такой объект уже взят этим читателем
+Статистика библиотеки и читателя
+Book:B1,Пасынки вселенной,Available:false
+Book:B2,Астронавт Джонс,Available:true
+Magazine:B3,Огонек,Available:true
+Magazine:B4,Огонек,Available:true
+Читатель c ID: R1,Евгений взял следующие книги:
+Book:B1,Пасынки вселенной,Хайнлайн,1442-BBN-1232-EW,false
+--книга уже взята другим читателем
+Ошибка : Элемент библиотеки с ID: B1 взят другим читателем
+Статистика библиотеки и читателя:
+Book:B1,Пасынки вселенной,Available:false
+Book:B2,Астронавт Джонс,Available:true
+Magazine:B3,Огонек,Available:true
+Magazine:B4,Огонек,Available:true
+Читатель c ID: R2,Константин взял следующие книги:
+3. Протестируем возврат книги читателем Евгений
+--успешный возврат
+Статистика библиотеки и читателя:
+Book:B1,Пасынки вселенной,Available:true
+Book:B2,Астронавт Джонс,Available:true
+Magazine:B3,Огонек,Available:true
+Magazine:B4,Огонек,Available:true
+Читатель c ID: R1,Евгений взял следующие книги:
+--книга уже возвращена
+Ошибка : Объект библиотки с ID: B1 уже возвращен
+Статистика библиотеки и читателя:
+Book:B1,Пасынки вселенной,Available:true
+Book:B2,Астронавт Джонс,Available:true
+Magazine:B3,Огонек,Available:true
+Magazine:B4,Огонек,Available:true
+Читатель c ID: R1,Евгений взял следующие книги:
+--читатель не найден
+Ошибка : Читатель с ID: R12 не найден
+Статистика библиотеки и читателя:
+Book:B1,Пасынки вселенной,Available:true
+Book:B2,Астронавт Джонс,Available:true
+Magazine:B3,Огонек,Available:true
+Magazine:B4,Огонек,Available:true
+Ошибка : Читатель с ID: R12 не найден
+--книга не найдена
+Ошибка : Элемент библиотеке с ID: B12 не найден
+Статистика библиотеки и читателя:
+Book:B1,Пасынки вселенной,Available:true
+Book:B2,Астронавт Джонс,Available:true
+Magazine:B3,Огонек,Available:true
+Magazine:B4,Огонек,Available:true
+Читатель c ID: R1,Евгений взял следующие книги:

@@ -9,7 +9,7 @@ public abstract class LibraryItem {
     public LibraryItem(String id,String title, boolean isAvailable){
     setAvailability(isAvailable);
     setTitle(title);
-    setId("");
+    setId(id);
 
     }
 
@@ -22,23 +22,18 @@ public abstract class LibraryItem {
         }   
     }
 
-    public void setAvailability(boolean newState) {
-        if (newState) {
-            this.isAvailable = true;
-        }
-        if (!newState) {
-            this.isAvailable = false;
-        }
-        else {
-            throw new IllegalArgumentException("Неверное значение аргумента isAvailable")
-        }   
-    }    
+    public void setAvailability(Boolean newState) {
+    if (newState == null) {
+        throw new IllegalArgumentException("isAvailable не может быть null");
+    }
+    this.isAvailable = newState;
+}  
 
-    public String setId(String inId){
-        if (inId == null || title.trim().isEmpty()) {
-            return LibraryIdGen.bookNextId();
+    public void setId(String inId){
+        if (inId == null || inId.trim().isEmpty()) {
+            this.id =  LibraryIdGen.bookNextId();
         }
-        else {return inId;}
+        else {this.id = inId;}
     }
 
     
@@ -63,7 +58,7 @@ public abstract class LibraryItem {
         return isAvailable;
     }
 
-        
+
 
     
 }
