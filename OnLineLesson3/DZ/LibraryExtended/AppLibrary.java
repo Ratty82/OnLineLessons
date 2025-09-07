@@ -7,8 +7,8 @@ public class AppLibrary {
         library.addItem(new Book("","Астронавт Джонс",true,"Хайнлайн","1442-SS-1132-EW"));
         library.addItem(new Magazine("","Огонек",true,1,1));
         library.addItem(new Magazine("","Огонек",true,2,2));
-        library.addReader(new Reader("","Евгений",null));
-        library.addReader(new Reader("","Константин",null));
+        library.addReader(new Reader("Евгений",null));
+        library.addReader(new Reader("Константин",null));
 
         library.listItems();
         System.out.println("");
@@ -92,11 +92,8 @@ public class AppLibrary {
          System.out.println("--книга уже взята другим читателем");
         
         try {library.borrowItem("B1", "R2");}
-        catch (ItemNotFoundException inf) {
+        catch (ItemNotFoundException  | ItemNotAvailableException inf) {
             System.out.println("Ошибка : " + inf.getMessage());
-        }
-        catch (ItemNotAvailableException ina) {
-            System.out.println("Ошибка : " + ina.getMessage());
         }
         catch (ReaderNotFoundException rnf) {
             System.out.println("Ошибка : " + rnf.getMessage());

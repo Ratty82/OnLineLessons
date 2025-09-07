@@ -2,11 +2,18 @@
    - Поле: `items` (коллекция LibraryItem)
    - Методы: `addItem()`, `borrowItem(String id)`, `returnItem(String id)`, `findItemById(String id)` */
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Library {
     private  List<LibraryItem> items = new ArrayList<>();
     private  List<Reader> readers = new ArrayList<>();
+    
+    private  Map<String ,Reader> mapReaders = new HashMap<>();
+    
+    private  Map<String ,LibraryItem> mapItems = new ArrayList<>();
+
+    // {1;name;(borrowebItems)}
 
     public void addItem(LibraryItem libItem){
         items.add(libItem);
@@ -17,17 +24,28 @@ public class Library {
     }
 
     public LibraryItem findItemById(String id) throws ItemNotFoundException{
-        if (id == null || id.isBlank()) {
+
+        LibraryItem item = mapItems.get(id);
+        if(item == null){
+            throw new ItemNotFoundException(id); 
+        }
+
+        return item;
+
+/*
+         if (id == null || id.isBlank()) {
             throw new ItemNotFoundException("Значение отсутствует");
+        } else {
+            for (LibraryItem item : items) {
+                if (item.getId().equalsIgnoreCase(id)) {
+                    return item;
+                }           
+            }
+            throw new ItemNotFoundException(id); 
         }
-        else {
-        for (LibraryItem item : items) {
-            if (item.getId().equalsIgnoreCase(id)) {
-                return item;
-                    }           
-           }
-        throw new ItemNotFoundException(id); 
-        }
+ */
+
+
     }
 
     public Reader findReaderById(String id) throws ReaderNotFoundException{

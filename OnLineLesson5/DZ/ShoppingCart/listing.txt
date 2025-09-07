@@ -1,0 +1,15 @@
+1. List all items:
+[Apple, Banana, Salmon, Halibut]
+
+2. Find the most expensive item:
+Item : Halibut has max price : 7150.0
+
+3. Calculate cart total:
+8720.0
+
+4. Remove item from cart with exception :
+Error : Number should be positive
+[Apple, Banana, Salmon, Halibut]
+
+5. Remove item from cart without exception :
+[Banana, Salmon, Halibut]

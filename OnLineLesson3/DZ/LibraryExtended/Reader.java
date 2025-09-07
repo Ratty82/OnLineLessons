@@ -10,7 +10,7 @@ import java.util.List;
     private String name;
     private List<LibraryItem> borrowedItems;
 
-    public Reader(String readerId, String name, ArrayList<LibraryItem> borrowedItems){
+    public Reader( String name, ArrayList<LibraryItem> borrowedItems){
         this.readerId = LibraryIdGen.readerNextId();
         this.borrowedItems = new ArrayList<>();
         setName(name);
